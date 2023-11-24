@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('p2.jpg');
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .login-container {
+            background-color: transparent;
+            padding: 60px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 40px;
+            width: 550px;
+
+        }
+
+        h2 {
+            color: yellow;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #ff5555;
+            margin-top: 10px;
+        }
+
+        #forgot-password {
+            text-decoration: none;
+            color: darkred;
+            font-size: 14px;
+        }
+
+        #forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            color: yellow;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <button id="logoutButton" onclick="logout()">Logout</button>
+        <section class="login-container">
+            <h2>Number Guessing Game</h2>
+            <script>
+                window.onload = function () {
+                    showConfirmation();
+                };
+
+                function showConfirmation() {
+                    var agree = confirm("Do you want to play the Number Guessing Game?");
+                    if (!agree) {
+                        window.location.href = "index.html"; // Redirect to logout page or any other action
+                    }
+                }
+
+                function logout() {
+                    var confirmLogout = confirm("Are you sure you want to logout?");
+                    if (confirmLogout) {
+                        window.location.href = "index.html"; // Redirect to home page or any other action
+                    }
+                }
+
+                function checkGuess() {
+                    // Your existing checkGuess function
+                }
+
+                function retryGame() {
+                    // Your existing retryGame function
+                }
+            </script>
+            <p>Guess a number between 1 and 10:</p>
+            <div class="form-group">
+                <input type="number" id="userGuess" placeholder="Enter Your Guess" required>
+            </div>
+            <button type="button" onclick="checkGuess()" id="submitGuessButton">Submit Guess</button>
+            <p id="feedback"></p>
+            <img id="successGif" src="lucky.gif" style="display: none; width: 100%; max-width: 450px;">
+            <img id="failureGif" src="go.gif" style="display: none; width: 100%; max-width: 450px;">
+            <p>Chances left: <span id="chances">3</span></p>
+            <button type="button" id="retryButton" onclick="retryGame()" disabled>Retry</button>
+        </section>
+    </div>
+</body>
+
+</html>
